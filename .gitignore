@@ -1,0 +1,5 @@
+/target
+/azubilog.db
+/azubilog.db-shm
+/azubilog.db-wal
+.env
