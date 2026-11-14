@@ -1,22 +1,40 @@
 # AzubiLog
 
-AzubiLog ist ein responsives, installierbares Web-Berichtsheft für Auszubildende.
+**Das moderne digitale Berichtsheft für Auszubildende.** AzubiLog verbindet eine hochwertige, responsive Oberfläche mit einem lokalen Rust-Backend und einer SQLite-Datenbank.
 
 ## Funktionen
-- Azubi-Profil mit Name, Ausbildungsberuf, Betrieb, Ausbildungsjahr, Ausbilder und Beginn
-- Tagesberichte mit Datum, Stunden, Tätigkeit, Beschreibung, Ausbildungsart und Abteilung
-- Wochenübersicht Montag bis Sonntag
-- Berichte bearbeiten und löschen
-- PDF-Wochenbericht mit Profil, Tätigkeiten, Gesamtstunden und Unterschriftsfeldern
-- CSV-Export aller Einträge
-- Speicherung lokal im Browser (localStorage)
-- PWA-Grundgerüst mit Service Worker und Web-App-Manifest
+- Ausbildungsprofil mit Name, Beruf, Betrieb, Ausbildungsjahr und Ausbildungsbeginn
+- Tagesberichte mit Datum, Tätigkeiten, Stunden, Bereich und Notizen
+- Wochenübersicht mit Kalenderwoche, Eintragszahl und dokumentierten Stunden
+- Tagesberichte bearbeiten und löschen
+- Druckoptimierter Wochenbericht – im Browser als PDF speichern
+- Datenhaltung in SQLite auf dem eigenen Rechner
+- Responsive Design für Desktop, Tablet und Smartphone
 
-## Starten
-GitHub Pages aktivieren: Repository → Settings → Pages → Deploy from a branch → `main` → `/ (root)`.
+## Technologie
+- **Backend:** Rust, Axum, Tokio
+- **Datenbank:** SQLite über rusqlite
+- **Frontend:** HTML, modernes CSS und Vanilla JavaScript
+- **API:** JSON unter `/api`
 
-## Datenschutz
-Die erste Version speichert Profil- und Berichtsdaten lokal im Browser. Es gibt keine Registrierung, keinen Server und keine Synchronisierung zwischen Geräten. Für Mehrbenutzerkonten mit Cloud-Synchronisierung wird ein Backend mit Authentifizierung und Datenbank benötigt.
+## Voraussetzungen
+- Rust stable (Edition 2021)
 
-## Technologien
-HTML, CSS und Vanilla JavaScript; jsPDF wird für den PDF-Export über jsDelivr eingebunden.
+## Lokal starten
+```bash
+git clone https://github.com/CyrexMV/AzubiLog.git
+cd AzubiLog
+cargo run --release
+```
+Öffne anschließend **http://127.0.0.1:3000** im Browser.
+
+Beim ersten Start legt AzubiLog automatisch die Datei `azubilog.db` im Arbeitsverzeichnis an. Diese enthält das Profil und die Tagesberichte.
+
+## Wochenbericht als PDF
+Wähle die gewünschte Kalenderwoche und klicke auf **PDF exportieren**. Im Druckdialog deines Browsers wählst du „Als PDF speichern“.
+
+## Datenschutz & Einsatz
+Diese Version ist für die lokale Nutzung auf einem Rechner konzipiert. Die Datenbank liegt lokal und es gibt keine Übertragung an einen Cloud-Dienst. Mehrbenutzerkonten, Anmeldung und geräteübergreifende Synchronisierung sind derzeit nicht enthalten. Für öffentliches Hosting müssen Authentifizierung, HTTPS, Zugriffsschutz und ein passendes Datenschutzkonzept ergänzt werden.
+
+## Lizenz
+MIT
